@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+
+    <!--Quizes Questions-->
+    <string name="question_one">A man is looking at a photograph of someone. His friend asks who it is. The man replies, “Brothers and sisters, I have none. But that man’s father is my father’s son.” Who was in the photograph?</string>
+    <string name="answer_one">His son</string>
+
+    <string name="question_two">Mike is a butcher. He is 5’10” tall. What does he weigh?</string>
+    <string name="answer_two">meat</string>
+
+    <string name="question_three">A farmer has 17 sheep and all but nine die. How many are left?</string>
+    <string name="answer_three">Nine</string>
+
+    <string name="question_four">Which is heavier? A pound of feathers or a pound of rocks?</string>
+    <string name="answer_four">Neither. Both weigh a pound!</string>
+
+    <string name="question_five">What is full of holes but can still hold water?</string>
+    <string name="answer_five">A Sponge</string>
+
+    <string name="question_six">When young, I am sweet in the sun.When middle-aged, I make you gay.When old, I am valued more than ever.</string>
+    <string name="answer_six">Wine</string>
+
+    <string name="question_seven">Give me food, and I will live; give me water, and I will die. What am I?</string>
+    <string name="answer_seven">Fire</string>
+
+    <string name="question_eight">When you have me, you immediately feel like sharing me. But, if you do share me, you do not have me.</string>
+    <string name="answer_eight">A secret</string>
+
+    <string name="question_nine">What can you hold without ever touching or using your hands?</string>
+    <string name="answer_nine">Your breath</string>
+
+    <string name="question_ten">I have no voice, yet I speak to you.
+        \nI tell of all things in the world that people do.I have leaves, but I am not a tree.I have pages, but I am not a bride.I have a spine, but I am not a man.I have hinges, but I am not a door.I have told you all.
+        \nI cannot tell you more.What am I?</string>
+    <string name="ansswer_ten">A book</string>
+
+</resources>
