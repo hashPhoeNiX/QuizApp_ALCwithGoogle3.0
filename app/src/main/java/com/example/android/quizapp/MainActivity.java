@@ -15,30 +15,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
-    int id = 1;
-    List<String> questions = new ArrayList<>();
-    List<String> answers = new ArrayList<>();
-    String que1;
-    String que2;
-    String que3;
-    String que4;
-    String que5;
-    String que6;
-    String que7;
-    String que8;
-    String que9;
-    String que10;
-
-    String ans1;
-    String ans2;
-    String ans3;
-    String ans4;
-    String ans5;
-    String ans6;
-    String ans7;
-    String ans8;
-    String ans9;
-    String ans10;
+    int noOfCorrectAnswers = 0;
+    String answer_1;
+    String answer_2;
+    String answer_3;
+    String answer_4;
+    String answer_5;
+    String answer_6;
+    String answer_7;
+    String answer_8;
+    String answer_9;
+    String answer_10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,93 +33,133 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void getAnswers() {
-        ans1 = getResources().getString(R.string.answer_one);
-        ans2 = getResources().getString(R.string.answer_two);
-        ans3 = getResources().getString(R.string.answer_three);
-        ans4 = getResources().getString(R.string.answer_four);
-        ans5 = getResources().getString(R.string.answer_five);
-        ans6 = getResources().getString(R.string.answer_six);
-        ans7 = getResources().getString(R.string.answer_seven);
-        ans8 = getResources().getString(R.string.answer_eight);
-        ans9 = getResources().getString(R.string.answer_nine);
-        ans10 = getResources().getString(R.string.ansswer_ten);
+    /**
+     * This method handles each questions and their answers
+     */
+    private void inputAnswers(){
+        //First edit text for the first question
+        EditText editText1 = (EditText) findViewById(R.id.input_1);
+        EditText editText2 = (EditText) findViewById(R.id.input_2);
+        EditText editText3 = (EditText) findViewById(R.id.input_3);
+        EditText editText4 = (EditText) findViewById(R.id.input_4);
+        EditText editText5 = (EditText) findViewById(R.id.input_5);
+        EditText editText6 = (EditText) findViewById(R.id.input_6);
+        EditText editText7 = (EditText) findViewById(R.id.input_7);
+        EditText editText8 = (EditText) findViewById(R.id.input_8);
+        EditText editText9 = (EditText) findViewById(R.id.input_9);
+        EditText editText10 = (EditText) findViewById(R.id.input_10);
 
-        answers.add(ans1);
-        answers.add(ans2);
-        answers.add(ans3);
-        answers.add(ans4);
-        answers.add(ans5);
-        answers.add(ans6);
-        answers.add(ans7);
-        answers.add(ans8);
-        answers.add(ans9);
-        answers.add(ans10);
+        //Store each texts from the edit text in different varibles
+        answer_1 = editText1.getText().toString();
+        answer_2 = editText2.getText().toString();
+        answer_3 = editText3.getText().toString();
+        answer_4 = editText4.getText().toString();
+        answer_5 = editText5.getText().toString();
+        answer_6 = editText6.getText().toString();
+        answer_7 = editText7.getText().toString();
+        answer_8 = editText8.getText().toString();
+        answer_9 = editText9.getText().toString();
+        answer_10 = editText10.getText().toString();
     }
 
-    public void getQuestions() {
-        que1 = getResources().getString(R.string.question_one);
-        que2 = getResources().getString(R.string.question_two);
-        que3 = getResources().getString(R.string.question_three);
-        que4 = getResources().getString(R.string.question_four);
-        que5 = getResources().getString(R.string.question_five);
-        que6 = getResources().getString(R.string.question_six);
-        que7 = getResources().getString(R.string.question_seven);
-        que8 = getResources().getString(R.string.question_eight);
-        que9 = getResources().getString(R.string.question_nine);
-        que10 = getResources().getString(R.string.question_ten);
-
-        questions.add(que1);
-        questions.add(que2);
-        questions.add(que3);
-        questions.add(que4);
-        questions.add(que5);
-        questions.add(que6);
-        questions.add(que7);
-        questions.add(que8);
-        questions.add(que9);
-        questions.add(que10);
-    }
-
-    public void displayQuestions() {
-
-    }
-
-    public void previousQuestion(View view) {
-        Button prev = (Button) findViewById(R.id.prev);
-
-    }
-
-    public void nextQuestion(View view) {
-        Button next = (Button) findViewById(R.id.next);
-    }
-
-    public void submitAnswer(View view) {
-        EditText response = (EditText) findViewById(R.id.text_entry);
-        TextView question = (TextView) findViewById(R.id.question_text_view);
-        TextView question_id = (TextView) findViewById(R.id.que_id);
-
-        Log.i(getString(R.string.answer_one),"here");
-        getAnswers();
-        getQuestions();
-        for (int a = 0; a<answers.size(); a++) {
-            if (response.getText().toString().equalsIgnoreCase(answers.get(a))) {
-                score += 5;
-                Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, "Score: " + score, Toast.LENGTH_LONG).show();
-                question.setText(questions.get(a));
-                id = a+1;
-                question_id.setText(id);
-            } else {
-                Log.i(getString(R.string.answer_one), "here3");
-                Toast.makeText(this, "Aww. Try again", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, "Score: " + score, Toast.LENGTH_LONG).show();
-                break;
-            }
+    private void checkAnswers(){
+        inputAnswers();
+        //checking if the answers matches the stored values
+        if(answer_1.contains(getString(R.string.answer_one))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
         }
+
+        if(answer_2.contains(getString(R.string.answer_two))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_3.contains(getString(R.string.answer_three))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_4.contains(getString(R.string.answer_four))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_5.contains(getString(R.string.answer_five))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_6.contains(getString(R.string.answer_six))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_7.contains(getString(R.string.answer_seven))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_8.contains(getString(R.string.answer_eight))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_9.contains(getString(R.string.answer_nine))){
+            score += 10;
+            Toast.makeText(this, "Correct! Your score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
+        if(answer_10.contains(getString(R.string.answer_ten))){
+            score += 10;
+            Toast.makeText(this, "Correct! \nYour score is: "+score, Toast.LENGTH_SHORT).show();
+            noOfCorrectAnswers++;
+        }else{
+            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    public void startQuiz(View view) {
-        displayQuestions();
+    public void previousQuestion(View v){
+
+    }
+
+    public void nextQuestion(View v){
+
+    }
+
+    /**
+     * Submits all answers once the button is clicked to check for the maximum questions answered correctly
+     */
+    public void submitAnswer(View v){
+        checkAnswers();
+        Toast.makeText(this, "Congratulations, you scored "+noOfCorrectAnswers+" correctly", Toast.LENGTH_LONG).show();
     }
 }
