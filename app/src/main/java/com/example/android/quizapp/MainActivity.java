@@ -32,15 +32,23 @@ public class MainActivity extends AppCompatActivity {
     boolean answer_9b;
     String answer_10;
 
+    //Radiogroup for question 1
     RadioGroup option;
 
+    //checkbox for question 4
     CheckBox checkBox4a;
     CheckBox checkBox4b;
     CheckBox checkBox4c;
     CheckBox checkBox4d;
+
+    //Radiogroup for question 8
     RadioGroup answer8_option;
+
+    //checkbox for question 9
     CheckBox ans9_a;
     CheckBox ans9_b;
+
+    //Edit text for question 2, 3, 5, 6, 7, 10
     EditText editText2;
     EditText editText3;
     EditText editText5;
@@ -105,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswers(){
         inputAnswers();
         //checking if the answers matches the stored values
+        //answer 1 is His son
         if(answer_1 != -1){
             score += 10;
             noOfCorrectAnswers++;
@@ -112,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 1 is "+getString(R.string.answer_one), Toast.LENGTH_LONG).show();
         }
 
+        //answer 2 is meat
         if(answer_2.contains(getString(R.string.answer_two))){
             score += 10;
             noOfCorrectAnswers++;
@@ -119,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 2 is "+getString(R.string.answer_two), Toast.LENGTH_LONG).show();
         }
 
+        //answer 3 is Nine
         if(answer_3.contains(getString(R.string.answer_three))){
             score += 10;
             noOfCorrectAnswers++;
@@ -126,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 3 is "+getString(R.string.answer_three), Toast.LENGTH_LONG).show();
         }
 
+        //answer 4 is Neither or Both Rocks and Feathers
         if(answer_4a || answer_4b){
             score += 10;
             noOfCorrectAnswers++;
@@ -133,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 4 is "+getString(R.string.answer_four), Toast.LENGTH_LONG).show();
         }
 
+        //answer 5 is Sponge
         if(answer_5.contains(getString(R.string.answer_five))){
             score += 10;
             noOfCorrectAnswers++;
@@ -140,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 5 is "+getString(R.string.answer_five), Toast.LENGTH_LONG).show();
         }
 
+        //answer 6 is Wine
         if(answer_6.contains(getString(R.string.answer_six))){
             score += 10;
             noOfCorrectAnswers++;
@@ -147,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 6 is "+getString(R.string.answer_six), Toast.LENGTH_LONG).show();
         }
 
+        //answer 7 is Fire
         if(answer_7.contains(getString(R.string.answer_seven))){
             score += 10;
             noOfCorrectAnswers++;
@@ -154,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 7 is "+getString(R.string.answer_seven), Toast.LENGTH_LONG).show();
         }
 
+        //answer 8 is A Secret
         if(answer_8 != -1){
             score += 10;
             noOfCorrectAnswers++;
@@ -161,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 8 is "+getString(R.string.answer_eight), Toast.LENGTH_LONG).show();
         }
 
+        //answer 9 is Your breath
         if(answer_9a && answer_9b){
             score += 10;
             noOfCorrectAnswers++;
@@ -168,13 +185,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Answer for Question 9 is "+getString(R.string.answer_nine), Toast.LENGTH_LONG).show();
         }
 
+        //answer 10 is A Book
         if(answer_10.contains(getString(R.string.answer_ten))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
             Toast.makeText(this, "Answer for Question 10 is "+getString(R.string.answer_ten), Toast.LENGTH_LONG).show();
         }
-
     }
 
     /**
@@ -182,9 +199,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitAnswer(View v){
         checkAnswers();
-        Toast.makeText(this, "Congratulations, you scored "+noOfCorrectAnswers+" correctly\n\"Your score is: "+score, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Congratulations, you answered  "+noOfCorrectAnswers+" questions correctly\n\"Your score is: "+score, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Reset the views back to their initial position
+     * All views are returned back to how they were in the activity_main
+     * @param v
+     */
     public void reset(View v){
         inputAnswers();
         score = 0;
