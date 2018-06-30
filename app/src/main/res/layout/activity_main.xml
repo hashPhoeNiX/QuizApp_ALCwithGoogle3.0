@@ -65,6 +65,7 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/question1_options"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
 
@@ -196,14 +197,45 @@
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/input_4"
+            <CheckBox
+                android:id="@+id/input_4a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:textSize="16dp"
+                android:text="Neither" />
+
+            <CheckBox
+                android:id="@+id/input_4b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="16dp"
+                android:text="Feathers" />
+
+            <CheckBox
+                android:id="@+id/input_4c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="16dp"
+                android:text="Rocks" />
+
+            <CheckBox
+                android:id="@+id/input_4d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="16dp"
+                android:text="Both Feathers and Rocks" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -238,7 +270,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:hint="Hint: for washing" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -273,7 +305,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:hint="A drink" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -336,14 +368,48 @@
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/input_8"
+            <RadioGroup
+                android:id="@+id/answer8_options"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/input_8a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Gift" />
+
+                <RadioButton
+                    android:id="@+id/input_8b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Money" />
+
+                <RadioButton
+                    android:id="@+id/input_8c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Information" />
+
+                <RadioButton
+                    android:id="@+id/input_8d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/answer_eight" />
+
+            </RadioGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -371,14 +437,23 @@
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/input_9"
+            <CheckBox
+                android:id="@+id/input_9a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:text="Conversation" />
+
+            <CheckBox
+                android:id="@+id/input_9b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/answer_nine" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -413,7 +488,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:hint="Brain teaser" />
+                android:hint="A printed text" />
 
         </LinearLayout>
 
@@ -422,16 +497,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true">
-
-            <Button
-                android:id="@+id/prev"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="left"
-                android:onClick="previousQuestion"
-                android:padding="20dp"
-                android:text="Prev" />
 
             <Button
                 android:id="@+id/submit"
@@ -443,15 +508,6 @@
                 android:padding="20dp"
                 android:text="Submit" />
 
-            <Button
-                android:id="@+id/next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="right"
-                android:onClick="nextQuestion"
-                android:padding="20dp"
-                android:text="Next" />
 
         </LinearLayout>
 
