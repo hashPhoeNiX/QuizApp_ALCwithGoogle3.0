@@ -208,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
      * @param v
      */
     public void reset(View v){
+        //Calling the answer input method
         inputAnswers();
         score = 0;
         noOfCorrectAnswers = 0;
