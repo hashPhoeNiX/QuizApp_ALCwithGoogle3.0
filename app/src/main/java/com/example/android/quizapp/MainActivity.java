@@ -32,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
     boolean answer_9b;
     String answer_10;
 
+    RadioGroup option;
+
+    CheckBox checkBox4a;
+    CheckBox checkBox4b;
+    CheckBox checkBox4c;
+    CheckBox checkBox4d;
+    RadioGroup answer8_option;
+    CheckBox ans9_a;
+    CheckBox ans9_b;
+    EditText editText2;
+    EditText editText3;
+    EditText editText5;
+    EditText editText6;
+    EditText editText7;
+    EditText editText10;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,43 +60,43 @@ public class MainActivity extends AppCompatActivity {
      */
     private void inputAnswers(){
         //Views for each question
-        RadioGroup option = (RadioGroup) findViewById(R.id.question1_options);
+        option = (RadioGroup) findViewById(R.id.question1_options);
 
-        EditText editText2 = (EditText) findViewById(R.id.input_2);
-        EditText editText3 = (EditText) findViewById(R.id.input_3);
+        editText2 = (EditText) findViewById(R.id.input_2);
+        editText3 = (EditText) findViewById(R.id.input_3);
 
-        CheckBox checkBox4a = (CheckBox) findViewById(R.id.input_4a);
-        CheckBox checkBox4b = (CheckBox) findViewById(R.id.input_4b);
-        CheckBox checkBox4c = (CheckBox) findViewById(R.id.input_4c);
-        CheckBox checkBox4d = (CheckBox) findViewById(R.id.input_4d);
+        checkBox4a = (CheckBox) findViewById(R.id.input_4a);
+        checkBox4b = (CheckBox) findViewById(R.id.input_4b);
+        checkBox4c = (CheckBox) findViewById(R.id.input_4c);
+        checkBox4d = (CheckBox) findViewById(R.id.input_4d);
 
-        EditText editText5 = (EditText) findViewById(R.id.input_5);
-        EditText editText6 = (EditText) findViewById(R.id.input_6);
-        EditText editText7 = (EditText) findViewById(R.id.input_7);
+        editText5 = (EditText) findViewById(R.id.input_5);
+        editText6 = (EditText) findViewById(R.id.input_6);
+        editText7 = (EditText) findViewById(R.id.input_7);
 
-        RadioGroup answer8_option = (RadioGroup) findViewById(R.id.answer8_options);
+        answer8_option = (RadioGroup) findViewById(R.id.answer8_options);
 
-        CheckBox ans9_a = (CheckBox) findViewById(R.id.input_9a);
-        CheckBox ans9_b = (CheckBox) findViewById(R.id.input_9b);
-        EditText editText10 = (EditText) findViewById(R.id.input_10);
+        ans9_a = (CheckBox) findViewById(R.id.input_9a);
+        ans9_b = (CheckBox) findViewById(R.id.input_9b);
+        editText10 = (EditText) findViewById(R.id.input_10);
 
         //Store each texts from the Views in different varibles
         answer_1 = option.getCheckedRadioButtonId();
-        answer_2 = editText2.getText().toString();
-        answer_3 = editText3.getText().toString();
+        answer_2 = editText2.getText().toString().toLowerCase();
+        answer_3 = editText3.getText().toString().toLowerCase();
 
         answer_4a = checkBox4a.isChecked();
         answer_4b = checkBox4d.isChecked();
 
-        answer_5 = editText5.getText().toString();
-        answer_6 = editText6.getText().toString();
-        answer_7 = editText7.getText().toString();
+        answer_5 = editText5.getText().toString().toLowerCase();
+        answer_6 = editText6.getText().toString().toLowerCase();
+        answer_7 = editText7.getText().toString().toLowerCase();
         answer_8 = answer8_option.getCheckedRadioButtonId();
 
         answer_9a = ans9_a.isChecked();
         answer_9b = ans9_b.isChecked();
 
-        answer_10 = editText10.getText().toString();
+        answer_10 = editText10.getText().toString().toLowerCase();
     }
 
     /**
@@ -88,74 +105,74 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswers(){
         inputAnswers();
         //checking if the answers matches the stored values
-        if(answer_1 == 0){
+        if(answer_1 != -1){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 1 is "+getString(R.string.answer_one), Toast.LENGTH_LONG).show();
         }
 
         if(answer_2.contains(getString(R.string.answer_two))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 2 is "+getString(R.string.answer_two), Toast.LENGTH_LONG).show();
         }
 
         if(answer_3.contains(getString(R.string.answer_three))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 3 is "+getString(R.string.answer_three), Toast.LENGTH_LONG).show();
         }
 
         if(answer_4a || answer_4b){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 4 is "+getString(R.string.answer_four), Toast.LENGTH_LONG).show();
         }
 
         if(answer_5.contains(getString(R.string.answer_five))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 5 is "+getString(R.string.answer_five), Toast.LENGTH_LONG).show();
         }
 
         if(answer_6.contains(getString(R.string.answer_six))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 6 is "+getString(R.string.answer_six), Toast.LENGTH_LONG).show();
         }
 
         if(answer_7.contains(getString(R.string.answer_seven))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 7 is "+getString(R.string.answer_seven), Toast.LENGTH_LONG).show();
         }
 
-        if(answer_8==4){
+        if(answer_8 != -1){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 8 is "+getString(R.string.answer_eight), Toast.LENGTH_LONG).show();
         }
 
         if(answer_9a && answer_9b){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 9 is "+getString(R.string.answer_nine), Toast.LENGTH_LONG).show();
         }
 
         if(answer_10.contains(getString(R.string.answer_ten))){
             score += 10;
             noOfCorrectAnswers++;
         }else{
-            Toast.makeText(this, "Aww. Try again. \nScore: "+score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Answer for Question 10 is "+getString(R.string.answer_ten), Toast.LENGTH_LONG).show();
         }
 
     }
@@ -165,7 +182,27 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitAnswer(View v){
         checkAnswers();
-        Toast.makeText(this, "Congratulations, you scored "+noOfCorrectAnswers+" correctly", Toast.LENGTH_LONG).show();
-        Toast.makeText(this, "Your score is: "+score, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Congratulations, you scored "+noOfCorrectAnswers+" correctly\n\"Your score is: "+score, Toast.LENGTH_LONG).show();
+    }
+
+    public void reset(View v){
+        inputAnswers();
+        score = 0;
+        noOfCorrectAnswers = 0;
+        option.clearCheck();
+        ans9_a.setChecked(false);
+        ans9_b.setChecked(false);
+        answer8_option.clearCheck();
+        editText3.setText("");
+        editText2.setText("");
+        editText5.setText("");
+        editText6.setText("");
+        editText7.setText("");
+        editText10.setText("");
+        checkBox4a.setChecked(false);
+        checkBox4b.setChecked(false);
+        checkBox4c.setChecked(false);
+        checkBox4d.setChecked(false);
+        setContentView(R.layout.activity_main);
     }
 }

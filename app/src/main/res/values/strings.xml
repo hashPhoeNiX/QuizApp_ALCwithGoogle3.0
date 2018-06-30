@@ -15,7 +15,7 @@
     <string name="answer_four">Neither. Both weigh a pound!</string>
 
     <string name="question_five">What is full of holes but can still hold water?</string>
-    <string name="answer_five">A Sponge</string>
+    <string name="answer_five">Sponge</string>
 
     <string name="question_six">When young, I am sweet in the sun.When middle-aged, I make you gay.When old, I am valued more than ever.</string>
     <string name="answer_six">Wine</string>
@@ -32,6 +32,6 @@
     <string name="question_ten">I have no voice, yet I speak to you.
         \nI tell of all things in the world that people do.I have leaves, but I am not a tree.I have pages, but I am not a bride.I have a spine, but I am not a man.I have hinges, but I am not a door.I have told you all.
         \nI cannot tell you more.What am I?</string>
-    <string name="answer_ten">A book</string>
+    <string name="answer_ten">Book</string>
 
 </resources>
