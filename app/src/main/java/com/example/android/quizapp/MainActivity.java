@@ -1,17 +1,23 @@
 package com.example.android.quizapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
+    int id = 1;
+    List<String> questions = new ArrayList<>();
+    List<String> answers = new ArrayList<>();
     String que1;
     String que2;
     String que3;
@@ -23,81 +29,110 @@ public class MainActivity extends AppCompatActivity {
     String que9;
     String que10;
 
+    String ans1;
+    String ans2;
+    String ans3;
+    String ans4;
+    String ans5;
+    String ans6;
+    String ans7;
+    String ans8;
+    String ans9;
+    String ans10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void questions(){
-        que1 = "A woman shoots her husband, holds him under water for five minutes, and hangs him. When she's\n" +
-                "done, her husband tells her, \"Good Job.\"\n" +
-                "How is this possible?";
-        que2 = "A man is convicted to death. He will be spared if he can pick out one real flower in a room full of fake\n" +
-                "flowers. When he gets in the room, he complains about the heat and opens a window. Soon after, he\n" +
-                "finds the real flower.";
-        que3 = "A sign at a store says, \"If you don't see what you want, you're in the right place.\" What does the store\n" +
-                "sell?";
-        que4 = "Two mothers and two daughters go to the bike shop. Each one of them buys one bike. They come\n" +
-                "back with three bikes. How is this possible.";
-        que5 = "The man who makes it doesn't need it, the man who buys it doesn't use it, and the man he gives it to\n" +
-                "doesn't know he's using it.\n" +
-                "What is it?";
-        que6 = "The manager of a hotel realizes that someone is stealing from the hotel. He comes up with a plan to\n" +
-                "catch the thief. That evening, he gives everyone a stick and says to sleep with it under their pillow.\n" +
-                "The stick will grow an inch longer if it is the thief's pillow. The next morning, all the guests come into\n" +
-                "the lobby with their sticks. The manager picks out the thief. The sticks weren't magic. How did he do\n" +
-                "it?";
-        que7 = "";
-        que8 = "";
-        que9 = "";
-        que10 = "";
+    public void getAnswers() {
+        ans1 = getResources().getString(R.string.answer_one);
+        ans2 = getResources().getString(R.string.answer_two);
+        ans3 = getResources().getString(R.string.answer_three);
+        ans4 = getResources().getString(R.string.answer_four);
+        ans5 = getResources().getString(R.string.answer_five);
+        ans6 = getResources().getString(R.string.answer_six);
+        ans7 = getResources().getString(R.string.answer_seven);
+        ans8 = getResources().getString(R.string.answer_eight);
+        ans9 = getResources().getString(R.string.answer_nine);
+        ans10 = getResources().getString(R.string.ansswer_ten);
+
+        answers.add(ans1);
+        answers.add(ans2);
+        answers.add(ans3);
+        answers.add(ans4);
+        answers.add(ans5);
+        answers.add(ans6);
+        answers.add(ans7);
+        answers.add(ans8);
+        answers.add(ans9);
+        answers.add(ans10);
     }
 
-    public void displayQuestions(String que, String answerA, String answerB, String answerC, String answerD){
-        TextView question = (TextView) findViewById(R.id.question_text_view);
-        question.setText(que);
+    public void getQuestions() {
+        que1 = getResources().getString(R.string.question_one);
+        que2 = getResources().getString(R.string.question_two);
+        que3 = getResources().getString(R.string.question_three);
+        que4 = getResources().getString(R.string.question_four);
+        que5 = getResources().getString(R.string.question_five);
+        que6 = getResources().getString(R.string.question_six);
+        que7 = getResources().getString(R.string.question_seven);
+        que8 = getResources().getString(R.string.question_eight);
+        que9 = getResources().getString(R.string.question_nine);
+        que10 = getResources().getString(R.string.question_ten);
 
-        RadioButton optionA = (RadioButton) findViewById(R.id.optionA);
-        optionA.setText(answerA);
-
-        RadioButton optionB = (RadioButton) findViewById(R.id.optionB);
-        optionB.setText(answerB);
-
-        RadioButton optionC = (RadioButton) findViewById(R.id.optionC);
-        optionC.setText(answerC);
-
-        RadioButton optionD = (RadioButton) findViewById(R.id.optionD);
-        optionA.setText(answerD);
+        questions.add(que1);
+        questions.add(que2);
+        questions.add(que3);
+        questions.add(que4);
+        questions.add(que5);
+        questions.add(que6);
+        questions.add(que7);
+        questions.add(que8);
+        questions.add(que9);
+        questions.add(que10);
     }
 
-    public void previousQuestion(View view){
+    public void displayQuestions() {
+
+    }
+
+    public void previousQuestion(View view) {
         Button prev = (Button) findViewById(R.id.prev);
 
     }
 
-    public void nextQuestion(View view){
+    public void nextQuestion(View view) {
         Button next = (Button) findViewById(R.id.next);
     }
 
-    public void submitAnswer(View view){
-        Toast.makeText(this, "Score: " + score, Toast.LENGTH_LONG).show();
+    public void submitAnswer(View view) {
+        EditText response = (EditText) findViewById(R.id.text_entry);
+        TextView question = (TextView) findViewById(R.id.question_text_view);
+        TextView question_id = (TextView) findViewById(R.id.que_id);
+
+        Log.i(getString(R.string.answer_one),"here");
+        getAnswers();
+        getQuestions();
+        for (int a = 0; a<answers.size(); a++) {
+            if (response.getText().toString().equalsIgnoreCase(answers.get(a))) {
+                score += 5;
+                Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Score: " + score, Toast.LENGTH_LONG).show();
+                question.setText(questions.get(a));
+                id = a+1;
+                question_id.setText(id);
+            } else {
+                Log.i(getString(R.string.answer_one), "here3");
+                Toast.makeText(this, "Aww. Try again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Score: " + score, Toast.LENGTH_LONG).show();
+                break;
+            }
+        }
     }
 
-    public void startQuiz(View view){
-
-        /**
-         * To get the selected button group
-         */
-        RadioGroup ans = (RadioGroup) findViewById(R.id.radioGroup);
-        int answer = ans.getCheckedRadioButtonId();
-
-        if (answer==1){
-            score += 2;
-            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Wrong answer, please try again.", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    public void startQuiz(View view) {
+        displayQuestions();
     }
 }

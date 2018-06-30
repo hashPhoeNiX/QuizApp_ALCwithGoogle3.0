@@ -6,126 +6,111 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:text="Attempt the following questions" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start Quiz"
-            android:layout_margin="28dp"
-            android:onClick="startQuiz"/>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/que_id"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="1." />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/question_text_view"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="16dp"
+                    android:padding="10dp"
+                    android:text="Attempt the following questions"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Question 1" />
+                android:layout_marginBottom="20dp"
+                android:onClick="startQuiz"
+                android:text="Start Quiz" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/que_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="1."
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/question_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/question_one"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/text_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="Brain teaser" />
 
         </LinearLayout>
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <RadioButton
-                android:id="@+id/optionA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="16dp"
-                android:text="Answer 1" />
-
-            <RadioButton
-                android:id="@+id/optionB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="16dp"
-                android:text="Answer 2" />
-
-            <RadioButton
-                android:id="@+id/optionC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="16dp"
-                android:text="Answer 3" />
-
-            <RadioButton
-                android:id="@+id/optionD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="16dp"
-                android:text="Answer 4" />
-
-        </RadioGroup>
-
-    </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="left"
-        android:padding="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Prev"
-        android:onClick="previousQuestion"/>
+        android:layout_margin="20dp"
+        android:gravity="left"
+        android:onClick="previousQuestion"
+        android:padding="20dp"
+        android:text="Prev" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_margin="20dp"
         android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
+        android:onClick="submitAnswer"
         android:padding="20dp"
-        android:text="Submit"
-        android:onClick="submitAnswer"/>
+        android:text="Submit" />
 
     <Button
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="right"
-        android:padding="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Next"
-        android:onClick="nextQuestion"/>
+        android:layout_margin="20dp"
+        android:gravity="right"
+        android:onClick="nextQuestion"
+        android:padding="20dp"
+        android:text="Next" />
 
 </RelativeLayout>
