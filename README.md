@@ -14,3 +14,8 @@ The minimum API level is API 15  (ICE CREAM SANDWICH MR1).
 ## Acknowledgments
 
 * alcwithgoogle3 Slack Channel
+
+
+## Reference
+
+Quiz questions: https://icebreakerideas.com/brain-teasers/
